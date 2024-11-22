@@ -1,0 +1,67 @@
+.form-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    /* transform: translate(-50%, -50%); */
+}
+
+.gallery {
+    padding-top: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+}
+
+.photo-card {
+    flex: 1 1 calc(25% - 10px);
+    box-sizing: border-box;
+    /* width: calc((100% - 30px)/4); */
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.load-more {
+    position: fixed; 
+    bottom: 40px; /* Distanța de la partea inferioară a paginii */ 
+    left: 50%; 
+    transform: translateX(-50%); 
+    padding: 10px 20px; 
+    background-color: blue; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
+    display: none;
+}
