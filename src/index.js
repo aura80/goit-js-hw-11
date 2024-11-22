@@ -67,17 +67,28 @@ async function onLoadMore() {
     currentPage += 1;
 
     try {
-        const images = await getImages(queryText, currentPage);
+      const images = await getImages(queryText, currentPage);
 
-        updateMarkup(images.hits, false);
+      updateMarkup(images.hits, false);
 
-        loadMoreButton.style.display = (currentPage * 40) < images.totalHits ? 'block' : 'none';      
-      
-        if ((currentPage * 40) >= images.totalHits) {
-                Notiflix.Notify.info(
-                "We're sorry, but you've reached the end of search results."
-                );
-        }
+      loadMoreButton.style.display =
+        currentPage * 40 < images.totalHits ? 'block' : 'none';
+
+      if (currentPage * 40 >= images.totalHits) {
+        Notiflix.Notify.info(
+          "We're sorry, but you've reached the end of search results."
+        );
+      }
+
+      // Smooth scrolling
+      // getting the height of the first card to compute how much to scroll
+      const { height: cardHeight } = document
+        .querySelector('.gallery')
+        .firstElementChild.getBoundingClientRect();
+
+      // scrolling 2 * cardHeight
+        window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' });
+        
     } catch (error) {
       Notiflix.Notify.failure(`Something went wrong. Please try again later.`);
     }
